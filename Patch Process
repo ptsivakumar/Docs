@@ -1,0 +1,72 @@
+# Third-Party Application Patching Process
+
+{info:title=Process Owner}
+**IT Operations Team** | Last Updated: {currentdate}
+{info}
+
+## 1. Overview
+
+This page documents the patching process for third-party applications across:
+- Windows/Linux servers
+- Windows 10/11 endpoints
+
+{expand:Click to view system coverage}
+|| Application Type || Examples ||
+| Windows Servers | Java, Apache, IIS modules |
+| Linux Servers | OpenSSL, NGINX, Docker |
+| Windows 10/11 | Adobe, Zoom, Chrome |
+{expand}
+
+## 2. Patch Acquisition
+
+### 2.1 Download Sources
+
+{table:width=100%}
+| System Type | Source | Validation Method |
+| Windows Servers | Vendor portals | Digital signatures |
+| Linux Servers | EPEL/GitHub | GPG keys |
+| Endpoints | Vendor auto-updaters | Intune compliance checks |
+{table}
+
+### 2.2 Security Verification
+
+{code:title=Windows Signature Check (PowerShell)}
+Get-AuthenticodeSignature -FilePath "\\patchrepo\3rdparty\app_patch.msi"
+{code}
+
+{code:title=Linux Checksum Validation (Bash)}
+sha256sum -c vendor-provided-checksum.txt
+{code}
+
+## 3. Request Process
+
+### 3.1 Request Template
+
+Copy this template into new requests:
+
+{code:title=Desktop Patch Request Template|borderStyle=solid}
+**Application:** [Name] [Version]  
+**Type:** [Security/Compliance/Bug]  
+**CVE:** [CVE-YYYY-XXXX]  
+**Test Evidence:** [Link to results]  
+**Urgency:** [Critical/High/Medium]  
+**Business Impact:** [Brief description]  
+{code}
+
+### 3.2 Approval Workflow
+
+{workflow:name=3rd-Party Patch Approval|width=60%}
+1. EUC Team → 2. Security → 3. App Owner → 4. IT Ops
+{workflow}
+
+## 4. SLAs & Timelines
+
+{status:title=Patch Timelines|subtitles=Critical,Standard|width=100%}
+|| Status | Timeline |
+| Critical (CVSS ≥7.0) | 48 hours |
+| Standard | Next monthly cycle |
+{status}
+
+## 5. Related Resources
+
+{children:style=h2|sort=title}
