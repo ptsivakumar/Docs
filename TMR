@@ -1,0 +1,106 @@
+Here is the content formatted for Confluence Wiki Markup. You can copy and paste this directly into a Confluence page in the "Wiki Markup" editor, or in the "Rich Text" editor by selecting "Wiki Markup" from the "Insert more content" (+) menu.
+
+```wiki
+h1. MAS Technology Risk Management (TRM) Framework & Logging Checklist
+
+The Monetary Authority of Singapore (MAS) establishes a robust framework for Technology Risk Management (TRM) to guide financial institutions (FIs) operating in Singapore. This framework is comprised of *TRM Guidelines* and legally binding *TRM Notices*.
+
+h2. MAS TRM Guidelines: Principles and Best Practices
+
+The *MAS TRM Guidelines (January 2021)* provide comprehensive guidance, principles, and best practices for FIs to establish sound and robust technology risk governance, oversight, and to maintain IT and cyber resilience. They address contemporary and emerging technology risks, including those associated with cloud computing, APIs, and agile development methodologies. While referred to as "guidelines," MAS strongly expects FIs to adhere to them, with any deviations requiring robust justification. Key areas covered include Technology Risk Governance, IT Project Management, Software Application Management, IT Service Management, IT Resilience, Access Controls, Cyber Resilience, Third-Party Risk Management, and Data Confidentiality.
+
+h2. MAS TRM Notices: Legally Binding Requirements
+
+The *MAS TRM Notices* stipulate mandatory legal requirements that FIs must comply with. These notices are specific to different types of financial institutions. Many older TRM Notices have been replaced or updated under the *Financial Services and Markets Act 2022 (FSMA)*, with new notices (e.g., FSM-N03, FSM-N05, FSM-N11, FSM-N21, FSM-N22, FSM-N20 for Cyber Hygiene) effective around May 2024. Common mandatory requirements include maintaining high reliability and availability of critical IT systems, protecting customer information, promptly notifying MAS of incidents, implementing cyber hygiene practices, and overseeing third-party service providers.
+
+h2. Specific Emphasis on Security Logs
+
+Both the MAS TRM Guidelines and Notices place significant emphasis on security logs as a foundational element for effective technology risk management, incident detection, and forensic analysis. Key expectations include comprehensive logging from all critical IT systems, specific logging of security-relevant events (authentication, privileged access, configuration changes), ensuring log content quality (contextual, structured, no sensitive data), robust log management and integrity (centralization, retention, tamper protection), active monitoring and analysis (alerting, anomaly detection), and seamless integration with incident response processes for discovery, investigation, and MAS notification.
+
+h2. MAS TRM Logging Checklist (with References & Classification)
+
+*Legend:*
+* *M (Mandatory Control):* A clear requirement often found in MAS Notices or strongly implied as essential for compliance with the spirit of the Guidelines. Non-compliance could lead to regulatory action.
+* *G (Good Practice/Guideline):* A recommended practice from the TRM Guidelines that FIs are strongly encouraged to adopt to enhance their technology risk management posture. Deviations should be justified by a robust risk assessment.
+
+*References:*
+* *TRMG 2021:* MAS Technology Risk Management Guidelines, January 2021.
+* *TRMN (FSM-NXX):* MAS Technology Risk Management Notices (e.g., FSM-N03, FSM-N05, FSM-N11, FSM-N21). These notices replaced older TRM notices effective May 10, 2024, under the Financial Services and Markets Act 2022 (FSMA).
+* *CHN (FSM-N20):* MAS Notice on Cyber Hygiene, also effective May 10, 2024.
+
+h3. I. Log Coverage & Collection (What & From Where)
+
+||Category||Checklist Item||MAS Reference||Classification||
+|**A. Scope of Logging**|||||
+|1. Critical IT Systems|Are security-relevant events logged from ALL critical IT systems, applications, databases, and network devices?|TRMG 2021, Sec 12.2.1|G|
+|2. Comprehensive Layers|Are logs collected from all relevant layers: Operating System, Applications, Databases, Network devices, Security appliances, and Cloud environments (IaaS, PaaS, SaaS logs)?|TRMG 2021, Sec 12.2.1|G|
+|**B. Specific Event Types to Log**|||||
+|1. Authentication Events|Are successful and failed authentication attempts logged for all users (local, domain, application)?|TRMG 2021, Sec 5.4.3(b), 10.3.1|G (Implicitly M for critical systems as per TRMN for security controls)|
+|2. Authorization & Access Control|Are changes to user permissions, privilege escalations, and unauthorized access attempts logged?|TRMG 2021, Sec 5.4.3(b), 10.3.1|G (Implicitly M for critical systems as per TRMN for security controls)|
+|3. Privileged User Activity|Are ALL activities performed by privileged accounts (administrators, root, service accounts, etc.) on all systems logged?|TRMG 2021, Sec 10.4.1|G (Strongly M for critical systems given its importance for security)|
+|4. Configuration Changes|Are modifications to critical system, application, or network configurations logged?|TRMG 2021, Sec 7.5.7|G|
+|5. System & Application Errors|Are critical system errors, crashes, and significant application errors logged?|TRMG 2021, Sec 12.2.1|G|
+|6. Security Software Events|Are events from security software (e.g., antivirus detections, IPS/IDS alerts, security tool failures/tampering) logged?|TRMG 2021, Sec 12.2.1|G|
+|7. Data Access|Are attempts to access sensitive data logged (where technically feasible and appropriate to the risk)?|TRMG 2021, Sec 11.2|G|
+|8. Network Connections|Are significant inbound/outbound network connections and unusual traffic patterns to/from critical assets logged?|TRMG 2021, Sec 12.2.1|G|
+|9. Software Development & Deployment|Are activities performed during the SDLC, including code deployments and changes, logged?|TRMG 2021, Sec 7.5.7|G|
+|10. Third-Party/Vendor Access|Are all activities by external parties (vendors, contractors, auditors) accessing the environment logged?|TRMG 2021, Sec 13.5.1 (Outsourcing)|G (Implicitly M as part of managing third-party risks under TRMN)|
+
+h3. II. Log Content & Quality (Format & Detail)
+
+||Category||Checklist Item||MAS Reference||Classification||
+|**A. Log Detail**|||||
+|1. Sufficient Context|Do logs contain sufficient detail for forensic analysis (e.g., precise timestamp, source/destination IP, user ID, process ID, event type, severity, outcome, object/resource accessed)?|TRMG 2021, Sec 12.2.1|G|
+|2. Standardized Format|Are logs collected in a consistent and structured format (e.g., JSON, key-value pairs) to facilitate parsing and analysis?|TRMG 2021, Sec 12.2.1 (Implicitly for effective analysis)|G|
+|**B. Data Protection in Logs**|||||
+|1. Sensitive Data Exclusion|Are sensitive customer information, cleartext passwords, or excessive Personally Identifiable Information (PII) excluded from logs or appropriately masked/encrypted?|TRMG 2021, Sec 11.2 (Data Confidentiality)|G (Implicitly M to prevent data leakage)|
+
+h3. III. Log Management & Integrity (Storage & Protection)
+
+||Category||Checklist Item||MAS Reference||Classification||
+|**A. Centralization & Reliability**|||||
+|1. Centralized Collection|Are logs from all critical sources consolidated into a central log management system (e.g., SIEM)?|TRMG 2021, Sec 12.2.2 (for analysis & correlation)|G|
+|2. Reliable Collection|Is the log collection mechanism robust, reliable, and resilient against failures or interruptions?|TRMG 2021, Sec 12.2.1 (Logs must be "comprehensive and reliable")|G|
+|**B. Retention & Protection**|||||
+|1. Defined Retention Periods|Are log retention periods formally defined and aligned with MAS regulatory requirements, other legal obligations, and forensic investigation needs?|TRMG 2021, Sec 12.2.4 (Timely information for investigation)|G (Implicitly M for auditability)|
+|2. Adherence to Retention|Are logs actually retained for the defined periods?|TRMG 2021, Sec 12.2.4|G (Implicitly M for auditability)|
+|3. Log Integrity (Tamper-Proof)|Are logs protected from unauthorized modification or deletion (e.g., WORM storage, cryptographic hashing, robust access controls on the log management system)?|TRMG 2021, Sec 12.2.4 (Log integrity is paramount for forensic evidence)|G (Strongly M for forensic reliability)|
+|4. Tamper Detection|Is there a process or mechanism in place to detect any tampering with logs?|TRMG 2021, Sec 12.2.4|G|
+|**C. Access Control**|||||
+|1. Least Privilege Access|Is access to raw logs and the log management system restricted based on the principle of least privilege and need-to-know?|TRMG 2021, Sec 10.3.1|G (Implicitly M for system security)|
+|2. Privileged User Log Access|Are privileged users *prevented* from accessing or altering system logs in which their own activities are captured, to ensure auditability and prevent concealment?|TRMG 2021, Sec 10.4.1 (Segregation of duties for privileged users)|G (Strongly M for auditability)|
+
+h3. IV. Log Monitoring & Analysis (Using the Logs)
+
+||Category||Checklist Item||MAS Reference||Classification||
+|**A. Active Monitoring & Alerting**|||||
+|1. Active Monitoring|Are security logs actively monitored, preferably in real-time for critical systems and applications?|TRMG 2021, Sec 12.2.2|G|
+|2. Defined Responsibilities|Are clear processes and responsibilities defined for log review and analysis?|TRMG 2021, Sec 12.2.1|G|
+|3. Automated Alerting|Are automated alerts configured for critical security events and anomalies (e.g., brute-force attempts, unauthorized access, malware detections, system failures)?|TRMG 2021, Sec 12.2.2|G|
+|4. Alert Tuning|Are alert thresholds tuned to minimize false positives and ensure timely notification of genuine threats?|TRMG 2021, Sec 12.2.2|G|
+|**B. Anomaly Detection**|||||
+|1. Baseline Establishment|Are baseline profiles of normal system activity established and regularly updated?|TRMG 2021, Sec 12.2.3|G|
+|2. Anomaly Detection Mechanisms|Are mechanisms in place (e.g., SIEM correlation rules, UEBA tools) to detect deviations from these baselines that could indicate a security incident?|TRMG 2021, Sec 12.2.3|G|
+|**C. Incident Response Integration**|||||
+|1. Log Availability for IR|Is log data readily accessible and searchable to support security incident detection, investigation, containment, eradication, and recovery efforts?|TRMG 2021, Sec 12.2.1, 12.3.1|G (Implicitly M for effective IR as per TRMN)|
+|2. Forensic Data Extraction|Is there a defined process to extract relevant log data efficiently for forensic analysis during an incident?|TRMG 2021, Sec 12.2.1, 12.3.1|G|
+|**D. Reporting & Improvement**|||||
+|1. Regular Review & Reporting|Are summary reports of security log analysis regularly reviewed by relevant management?|TRMG 2021, Sec 3.1.2 (Management Oversight)|G|
+|2. Gap Remediation|Are any identified gaps, issues, or lessons learned from log analysis and incident response tracked and formally remediated?|TRMG 2021, Sec 3.1.2, 12.3.2|G|
+
+h3. V. MAS Notification Requirements (Leveraging Logs for Compliance)
+
+||Category||Checklist Item||MAS Reference||Classification||
+|**A. Incident Definition & Discovery**|||||
+|1. Defined Reportable Incidents|Does your incident response plan clearly define what constitutes a "severe and widespread impact on operations" or "material impact on services to customers" for MAS notification purposes?|TRMN (FSM-NXX), e.g., FSM-N05 para 6.2|M|
+|2. Prompt Discovery Process|Is there a clear process for promptly identifying (often via logs) and assessing system malfunctions or IT security incidents that meet the MAS notification criteria?|TRMN (FSM-NXX), e.g., FSM-N05 para 6.1 (Procedures for prompt detection)|M|
+|**B. Notification Process**|||||
+|1. One-Hour Notification|Is the process in place to *notify MAS within one hour* of the discovery of a reportable incident?|TRMN (FSM-NXX), e.g., FSM-N05 para 6.3|M|
+|**C. Root Cause Analysis (RCA)**|||||
+|1. RCA Process|Is there a documented process for conducting a thorough root cause analysis for all reportable incidents?|TRMN (FSM-NXX), e.g., FSM-N05 para 6.4|M|
+|2. Log Support for RCA|Are logs adequately protected and retained to support the detailed forensic analysis required for RCA, which must be submitted to MAS within 14 days (or a longer period as allowed)?|TRMN (FSM-NXX), e.g., FSM-N05 para 6.4 (Implicitly, logs are vital for RCA)|M|
+|3. Log-Driven RCA|Does the RCA process explicitly leverage relevant log data to determine the sequence of events, initial compromise, and impact of the incident?|TRMN (FSM-NXX), e.g., FSM-N05 para 6.4|M|
+|**D. MAS Reporting Familiarity**|||||
+|1. MAS Incident Reporting Template|Are relevant personnel familiar with and do they utilize the MAS Incident Reporting Template for incident submissions?|MAS Website (Resources for FSM-NXX)|M|
+```
+
