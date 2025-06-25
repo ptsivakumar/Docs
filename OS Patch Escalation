@@ -1,0 +1,76 @@
+Okay, here's the content formatted for a Confluence page. I've combined the escalation plan and the shared responsibility model into a single page, using typical Confluence-friendly markdown and structure.
+
+You can copy and paste this directly into a Confluence page and the formatting should render correctly.
+
+-----
+
+```
+{panel:title=Page Information & Ownership}
+* **Page Title:** OS Patching Remediation Management (Escalation & Shared Responsibility)
+* **Purpose:** To define clear processes for escalating missed OS patching timelines and to delineate responsibilities between [Your Organization Name] and [Vendor Name].
+* **Owner:** [Your Team/Department, e.g., IT Operations, Infrastructure Team]
+* **Last Updated:** 26 June 2025
+{panel}
+
+{toc:minLevel=2|maxLevel=3|printable=true|outline=true|border=false}
+
+---
+
+h1. OS Patching Remediation Management
+
+This document outlines the framework for ensuring timely and compliant OS patching remediation within [Your Organization Name]'s environment. It covers both the process for escalating delays and the shared responsibilities between [Your Organization Name] and our patching vendor, [Vendor Name].
+
+---
+
+h2. OS Patching Remediation Escalation Plan
+
+This plan details the steps to be taken when OS patching remediation timelines are missed. The goal is to ensure prompt communication, appropriate management involvement, and timely resolution to mitigate potential audit findings and security risks.
+
+{panel:title=Key Principles of Escalation}
+* **Proactive Monitoring:** Identify potential delays before deadlines are missed.
+* **Tiered Escalation:** Clear levels of escalation based on severity and duration.
+* **Direct Communication:** Prioritize direct calls/discussions over extensive email chains for initial steps.
+* **Concise Information:** Provide only essential details at each stage.
+* **Actionable Documentation:** Maintain brief, internal notes for audit and follow-up.
+{panel}
+
+{info:title=Internal Documentation Note}
+All escalations and their outcomes should be briefly documented in our designated tracking system (e.g., [Link to your internal tracking system/Jira project/Confluence page for tracking]) to maintain an audit trail.
+{info}
+
+h3. Escalation Process Table
+
+| Escalation Level        | Trigger                                                                   | Action Taken                                                                                                                              | Expected Outcome/Goal (Towards Resolution)                                                                                                              | Internal Communication                                                                      | Documentation (Internal)                                                                        |
+| :---------------------- | :------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------ |
+| *1. Early Warning* | Potential delay identified 2-3 days before deadline (e.g., vendor unready) | * *Team Lead:* Direct call/chat with vendor's primary contact.                                                                          | * *Confirm vendor readiness or secure a revised commitment* for on-time patching to avoid a missed deadline.                                                | * *Team Lead:* Brief verbal to own manager.                                                 | Brief internal note in tracking system (reason for potential delay, updated commitment).          |
+| *2. Level 1* | Missed original deadline.                                                 | * *Team Lead (or Manager):* Immediate direct call/walk-over to vendor's local rep/primary contact. Confirm miss, get exact reason & new timeline. | * Obtain a *firm, immediate remediation timeline* and ensure the missed patch is *confirmed for inclusion in the upcoming week's remediation cycle*.         | * *Team Lead:* Verbal update to own manager (system, reason, new timeline).                 | Concise entry in tracking system (patch, server, missed date, vendor reason, new commitment).     |
+| *3. Level 2* | Missed revised timeline OR significant, unacceptable delay.               | * *Your Manager:* Call to vendor's counterpart (Account/Project Manager). Reiterate audit risk, demand resolution plan & firm timeline.  | * Secure a *concrete, expedited resolution plan, ensuring a change ticket is immediately created and the issue is addressed without further delay*.            | * *Your Manager:* Brief verbal update to their Senior Manager (Head of IT Ops/CIO).         | Update tracking system with Level 2 details (names involved, key outcomes).                     |
+| *4. Level 3* | Level 2 failed to resolve OR high-risk/significant impact delay.          | * *Your Director/Head of IT:* Call to vendor's regional/global leadership. Express dissatisfaction, demand executive intervention.          | * *Immediate executive-level intervention and commitment* from the vendor to resolve the critical patching issue and mitigate audit risk without further delay. | * *Your Director/Head of IT:* Direct, concise briefing to CIO/Management Committee.         | Update tracking system, noting senior leadership involvement and resolution plan.                 |
+
+---
+
+h2. Shared Responsibility Model for OS Patching Remediation
+
+This model clearly defines the roles and responsibilities of **[Your Organization Name]** and **[Vendor Name]** to ensure efficient, compliant, and secure OS patching remediation. While [Vendor Name] executes patching activities, [Your Organization Name] retains ultimate accountability for system security and compliance.
+
+{panel:title=Core Principle}
+While [Vendor Name] is engaged for execution, [Your Organization Name] retains ultimate accountability for system security and compliance.
+{panel}
+
+h3. Responsibility Matrix
+
+| Area / Phase                 | [Your Organization Name] Responsibilities (Accountability & Oversight)                                                                                                                              | [Vendor Name] Responsibilities (Execution & Reporting)                                                                                                                            |
+| :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| *1. Planning & Preparation* | * **Policy & Standards:** Define patching policies, timelines, security standards, and compliance requirements.<br>* **Scope & Inventory:** Maintain system inventory, define patching scope.<br>* **Tooling & Access:** Provide necessary patching tools and audited access.<br>* **Contractual:** Ensure clear SLAs, performance metrics, and escalation paths in contract. | * **Analysis & Validation:** Analyze patches, test in non-production (if applicable).<br>* **Schedule Proposal:** Propose detailed patching schedules and submit change requests.<br>* **Prerequisite Checks:** Ensure all pre-patching prerequisites are met. |
+| *2. Execution & Oversight* | * **Vulnerability Monitoring:** Proactively monitor for new vulnerabilities; inform vendor of critical patches.<br>* **Schedule Approval:** Review and approve vendor's proposed patching schedules.<br>* **Status Tracking:** Monitor patching status and vendor SLA adherence; identify potential delays.<br>* **Post-Patch Verification:** Conduct independent sample/spot checks for successful remediation.<br>* **Audit Readiness:** Maintain records for audit; lead auditor discussions. | * **Patch Deployment:** Execute patching per approved schedule and procedures.<br>* **Post-Patch Verification:** Perform immediate checks on patched systems for stability.<br>* **Incident Management:** Manage patching-related incidents, perform rollbacks if needed.<br>* **Adherence to SLAs:** Proactively communicate challenges or potential delays. |
+| *3. Communication & Reporting* | * **Escalation Management:** Execute defined escalation process for missed timelines; manage vendor relationship at higher levels.<br>* **Problem Resolution:** Act as POC for vendor queries, collaborate on complex issues. | * **Status Reporting:** Provide regular progress reports (deployed, pending, issues, reasons for delays).<br>* **Documentation:** Maintain detailed records of activities, provide remediation reports.<br>* **Escalation:** Engage internal and client escalation contacts when commitments cannot be met. |
+| *Key Collaboration Mechanisms* | * Regular sync meetings<br>* Joint problem-solving<br>* Defined Points of Contact (POCs)<br>* Shared tracking systems for real-time visibility.                                                              | * Regular sync meetings<br>* Joint problem-solving<br>* Defined Points of Contact (POCs)<br>* Shared tracking systems for real-time visibility.                                                     |
+
+---
+
+h2. Collaboration & Continuous Improvement
+
+Effective OS patching remediation relies on strong collaboration between [Your Organization Name] and [Vendor Name]. Regular reviews of this model and the escalation process will be conducted to ensure its ongoing effectiveness and adapt to evolving needs and challenges.
+
+---
+```
