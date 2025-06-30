@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SOP for Locally Managed Business Unit Printers - Checklist</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  h3 {
+    color: #333;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  ul li {
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+
+  <h3>SOP for Locally Managed Business Unit Printers - Checklist</h3>
+
+  <p>This checklist is derived from the "SOP for Locally Managed Business Unit Printers" document.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Checklist Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2"><b>1. Acquisition and Initial Setup</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.1.1 Vendor Evaluation:</b> When acquiring new printers, consider vendors with a strong security track record.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.1.2 Security Requirements Definition:</b> Before purchase, define specific security requirements, including robust access control, data encryption capabilities, and secure communication protocols.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.1.3 Physical Placement:</b> Place printers in secure, restricted areas where unauthorized access can be prevented. For printers handling sensitive data, ensure they are in visually controlled environments.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.1.4 Network Connection:</b> Connect printers only to approved and secure network segments. Avoid direct connection to the public internet.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><b>2. Secure Configuration and Hardening</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.1 Change Default Credentials:</b> Immediately change all default administrator usernames and passwords to strong, unique passwords.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.2 Set Administrator Password:</b> Implement a strong, complex administrator password for the printer's web interface (Remote UI) and control panel.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.3 Disable Unused Services/Ports:</b> Disable all unnecessary network services, protocols, and ports (e.g., FTP, IPP, SNMPv1/v2 if SNMPv3 is available).</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.4 Enable Secure Communication:</b> Configure the printer to use secure communication protocols (e.g., HTTPS for Remote UI, TLS 1.3 for network communication). Disable HTTP access.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.5 IP Address Restriction:</b> Restrict network access to the printer by allowing communication only from designated IP addresses or trusted subnets using the printer's built-in firewall features.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.6 User Access Control:</b> Implement user authentication (e.g., PINs, department IDs, or local user accounts) on the printer to control who can use it.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Configure role-based access to printer functions, restricting sensitive features (e.g., scanning to USB, cloud access) to authorized personnel.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.7 Data Encryption (HDD):</b> Enable data encryption for the printer's internal hard disk drive (HDD) if available.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.8 Secure Data Overwrite/Erase:</b> Configure automatic secure data overwrite or erase of temporary data (e.g., spooled files, scanned images) after job completion.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.2.9 Verify System at Startup:</b> Enable any "Verify System at Startup" features to ensure the integrity of the printer's firmware and OS.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><b>3. Operational Use</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.3.1 Secure Print Function:</b> Encourage or enforce the use of "Secure Print" or "Confidential Print" features, requiring users to enter a PIN at the printer to release their jobs.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.3.2 Encrypted PDF for Scanning:</b> When scanning sensitive documents, utilize the printer's functionality to create encrypted or password-protected PDF files.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.3.3 Original Removal Reminder:</b> Activate the original removal reminder for scanner/copier functions to prevent sensitive documents from being left on the scanner glass.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.3.4 Authorized Storage Media:</b> Only use authorized and secure USB drives or other external storage media when connecting to the printer for scanning or printing.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><b>4. Maintenance and Patch Management</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.4.1 Firmware Updates:</b> Regularly check for and apply the latest firmware updates and security patches released by the printer manufacturer. Establish a schedule for these checks (e.g., quarterly).</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.4.2 Configuration Backup:</b> Periodically back up the printer's secure configuration settings.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.4.3 Inventory Update:</b> Ensure the printer's entry in the BU's asset inventory is kept up-to-date, including model, serial number, firmware version, and location.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><b>5. Monitoring and Incident Management</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.5.1 Enable Logging:</b> Configure the printer to enable detailed logging of activities, including print jobs, user logins/logouts, configuration changes, and any security alerts.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.5.2 Log Review:</b> The BU Printer Administrator / Designated Officer must review printer logs periodically (e.g., weekly) for suspicious activities, unauthorized access attempts, or error messages.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.5.3 Incident Reporting:</b> Any suspected security incidents related to the printer (e.g., unauthorized access, data leakage, malware infection) must be immediately reported to the IT Security Incident Response Team (SIRT) following the organization's incident management procedures.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><b>6. Printer Decommissioning and Disposal</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.6.1 Data Wiping:</b> Before decommissioning, transferring, or disposing of a printer, ensure all data on its internal storage (HDD, SSD, or flash memory) is securely and irrevocably wiped using a method recommended by the manufacturer or IT department (e.g., multi-pass overwrite). Do not rely on simple factory resets for secure data erasure.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.6.2 Physical Disposal:</b> Arrange for secure physical disposal of the printer through an approved IT asset disposal vendor.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>4.6.3 Asset Inventory Update:</b> Update the BU's asset inventory to reflect the disposal or transfer of the printer.</td>
+      </tr>
+      <tr>
+        <td colspan="2"><b>7. Compliance and Review</b></td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>5.1 Annual Compliance Check:</b> Perform an annual compliance check against this SOP and the MAS TRM guidelines.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Verify current configuration settings match secure baselines.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Verify all firmware/software patches are up-to-date.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Verify log reviews are being performed.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Verify physical security measures are in place.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Verify user access is appropriately managed.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Document and remediate any identified deviations.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td>Submit a report on the compliance status to the BU Head and, if required, to the IT Department.</td>
+      </tr>
+      <tr>
+        <td>[ ]</td>
+        <td><b>5.2 SOP Review:</b> Formally review and update this SOP document every 2 to 3 years, or earlier if there are significant changes in technology, threats, or regulatory requirements.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
